@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace InvoiceTotal
 {
     public partial class frmInvoiceTotal : Form
@@ -9,7 +11,7 @@ namespace InvoiceTotal
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            decimal subtotal = Decimal.Parse(txtSubtotal.Text);
+            decimal subtotal = Decimal.Parse(txtSubtotal.Text, NumberStyles.Currency);
             decimal discountPct = .25m;
             decimal discountAmt = Math.Round(subtotal * discountPct, 2);
             decimal invoiceTotal = Math.Round(subtotal - discountAmt, 2);
